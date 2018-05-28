@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 基本信息 -->
+    <groupId>com.taotao</groupId>
+    <artifactId>taotao-parent</artifactId>
+    <version>0.0.1-RELEASE</version>
+    <!-- 父工程和聚合工程的打包类型必须是pom-->
+    <packaging>pom</packaging>
+
+    <name>taotao-parent</name>
+    <description>这是项目的父工程，只是配置依赖供子项目使用，消除重复</description>
+
+    <!-- 继承说明：这里继承SpringBoot提供的父工程 -->
+    <!--
+    在声明这是一个springboot的子项目，类似maven多模块时，子项目的pom.xml也会有节点
+    Maven的用户可以通过继承spring-boot-starter-parent项目来获得一些合理的默认配置。这个parent提供了以下特性：
+        1、默认使用Java 8
+        2、使用UTF-8编码
+        3、一个引用管理的功能，在dependencies里的部分配置可以不用填写version信息，这些version信息会从spring-boot-dependencies里得到继承。
+        4、识别过来资源过滤（Sensible resource filtering.）
+        5、识别插件的配置（Sensible plugin configuration (exec plugin, surefire, Git commit ID, shade).）
+        6、能够识别application.properties和application.yml类型的文件，同时也能支持profile-specific类型的文件（如： application-foo.properties and application-foo.yml，这个功能可以更好的配置不同生产环境下的配置文件)。
+        7、maven把默认的占位符${…​}改为了@..@（这点大家还是看下原文自己理解下吧，我个人用的也比较少
+since the default config files accept Spring style placeholders (${…​}) the Maven filtering is changed to use @..@ placeholders (you can override that with a Maven property resource.delimiter).）
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.2.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <!-- 集中配置依赖的版本号 -->
+    <properties>
+        <mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
+    </properties>
+
+    <!-- 这里只是定义依赖，并不会实际引用依赖, springboot没有定义的依赖，都在这里统一定义 -->
+    <dependencyManagement>
+
+        <!-- springboot整合mybatis-->
+        <dependencies>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot-starter.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+</project>

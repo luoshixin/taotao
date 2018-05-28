@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+    <!-- 基本信息-->
+    <groupId>com.taotao</groupId>
+    <artifactId>taotao-manager</artifactId>
+    <version>1.0-RELEASE</version>
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 父工程和聚合工程的打包类型必须是pom -->
+    <packaging>pom</packaging>
+
+    <!-- 配置父工程 -->
+    <parent>
+        <groupId>com.taotao</groupId>
+        <artifactId>taotao-parent</artifactId>
+        <version>0.0.1-RELEASE</version>
+    </parent>
+
+    <!-- 模块说明：这里是聚合工程所有多个模块 -->
+    <modules>
+        <module>taotao-manager-pojo</module>
+        <module>taotao-manager-mapper</module>
+        <module>taotao-manager-service</module>
+        <module>taotao-manager-web</module>
+    </modules>
+
+    <!-- 子模块可以继承这里的依赖 -->
+    <dependencies>
+        <!-- 在聚合父工程中引入工具类工程，供给子模块使用-->
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-common</artifactId>
+            <version>0.0.1-RELEASE</version>
+        </dependency>
+    </dependencies>
+
+
+    <properties>
+        <taotao-manager-module.version>1.0-RELEASE</taotao-manager-module.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.taotao</groupId>
+                <artifactId>taotao-manager-pojo</artifactId>
+                <version>${taotao-manager-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taotao</groupId>
+                <artifactId>taotao-manager-mapper</artifactId>
+                <version>${taotao-manager-module.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.taotao</groupId>
+                <artifactId>taotao-manager-service</artifactId>
+                <version>${taotao-manager-module.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>

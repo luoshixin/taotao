@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 配置父模块 -->
+    <parent>
+        <artifactId>taotao-manager</artifactId>
+        <groupId>com.taotao</groupId>
+        <version>1.0-RELEASE</version>
+    </parent>
+
+    <!-- 基本信息 -->
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>taotao-manager-mapper</artifactId>
+
+    <dependencies>
+        <!-- 本项目taotao-manager-mapper依赖taotao-manager-pojo-->
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-manager-pojo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>org.mybatis.spring.boot</groupId>-->
+            <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+</project>

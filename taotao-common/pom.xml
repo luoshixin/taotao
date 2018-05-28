@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.taotao</groupId>
+	<artifactId>taotao-common</artifactId>
+	<version>0.0.1-RELEASE</version>
+	<packaging>jar</packaging>
+
+	<name>taotao-common</name>
+	<description>这个工程是装的都是工具类</description>
+
+	<!-- 配置父工程，因为工具类工程中的依赖的版本号也是定义在父工程中 -->
+	<parent>
+		<groupId>com.taotao</groupId>
+		<artifactId>taotao-parent</artifactId>
+		<version>0.0.1-RELEASE</version>
+	</parent>
+
+
+	<dependencies>
+		<!--引入junit测试包，因为父工程师基于springboot的，已经定义了合适的版本号，所以不需要在写junit的版本，-->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
