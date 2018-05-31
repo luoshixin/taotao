@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--去掉注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--需要配置数据库连接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/taotao?characterEncoding=utf-8&amp;useSSL=false"
+                        userId="root"
+                        password="123">
+        </jdbcConnection>
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--指定entity生成的位置-->
+        <javaModelGenerator targetPackage="com.taotao.pojo" targetProject="/Users/lsx/Desktop/workspace/taotao/taotao-dao-generator/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--sql映射文件生成的位置 mapper.xml-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="/Users/lsx/Desktop/workspace/taotao/taotao-dao-generator/src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--指定DaoMapper生成的位置 mapper.java-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.taotao.mapper" targetProject="/Users/lsx/Desktop/workspace/taotao/taotao-dao-generator/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--table是指定每个表的生成策略-->
+        <table tableName="tb_content"/>
+        <table tableName="tb_content_category"/>
+        <table tableName="tb_item"/>
+        <table tableName="tb_item_cat"/>
+        <table tableName="tb_item_desc"/>
+        <table tableName="tb_item_param"/>
+        <table tableName="tb_item_param_item"/>
+        <table tableName="tb_order"/>
+        <table tableName="tb_order_item"/>
+        <table tableName="tb_order_shipping"/>
+        <table tableName="tb_user"/>
+    </context>
+</generatorConfiguration>
