@@ -3,6 +3,7 @@ package com.taotao.web;
 import com.taotao.TaotaoManagerWebApplication;
 import com.taotao.mapper.TbUserMapper;
 import com.taotao.pojo.TbUser;
+import com.taotao.service.ItemService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +17,11 @@ import java.util.List;
 public class TaotaoManagerWebApplicationTests {
 
 	@Autowired
-	private TbUserMapper tbUserMapper;
+	private ItemService itemService;
 
 	@Test
 	public void contextLoads() {
-		List<TbUser> users = tbUserMapper.selectByExample(null);
-		for (TbUser user : users){
-			System.out.println("数据：" + user);
-		}
+		itemService.findAllItems();
 	}
 
 }

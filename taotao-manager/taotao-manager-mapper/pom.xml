@@ -14,7 +14,7 @@
     <artifactId>taotao-manager-mapper</artifactId>
 
     <dependencies>
-        <!-- 本项目taotao-manager-mapper依赖taotao-manager-pojo-->
+        <!-- 内部依赖 -->
         <dependency>
             <groupId>com.taotao</groupId>
             <artifactId>taotao-manager-pojo</artifactId>
@@ -26,11 +26,6 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
 
-        <!--数据库连接jdbc依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
 
         <!-- 连接mysql的驱动 -->
         <dependency>

@@ -21,7 +21,6 @@
         <dependency>
             <groupId>com.taotao</groupId>
             <artifactId>taotao-manager-service</artifactId>
-            <version>${taotao-manager-module.version}</version>
         </dependency>
 
         <dependency>
