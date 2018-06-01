@@ -18,6 +18,7 @@
     </parent>
 
     <dependencies>
+        <!-- 内部依赖-->
         <dependency>
             <groupId>com.taotao</groupId>
             <artifactId>taotao-manager-service</artifactId>
@@ -28,12 +29,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- freemarker 依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
-
     </dependencies>
 
 
