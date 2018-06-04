@@ -1,0 +1,26 @@
+.selected-btn-block {
+    display: block;
+    width: 150px;
+    height: 35px;
+}
+
+.goods-input-size {
+    width: 500px;
+    height: 35px;
+}
+
+.goods-small-input-size {
+    width: 200px;
+    height: 35px;
+}
+.goods-textarea-size {
+    width: 500px;
+    height: 100px;
+}
+
+.table-margin{
+    margin:0px 5px 15px 50px;
+}
+.table-padding td {
+    padding: 10px 0px;
+}
