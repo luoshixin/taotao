@@ -1,5 +1,8 @@
 package com.taotao.web;
 
+import com.github.pagehelper.PageInfo;
+import com.taotao.common.Msg;
+import com.taotao.common.ResultUtil;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +22,16 @@ public class ItemController {
     private ItemService itemService;
 
 
-    @GetMapping("/all")
-    public List<TbItem> findAllItems(){
-        return itemService.findAllItems();
+    @GetMapping("/list")
+    public Msg findItems(Integer page, Integer pageSize){
+        PageInfo pageInfo = itemService.findItems(page, pageSize);
+
+        return ResultUtil.pagingSuscess(pageInfo.getList(),
+                pageInfo.getPageNum(),
+                pageInfo.getPageSize(),
+                pageInfo.getPages(),
+                pageInfo.isHasPreviousPage(),
+                pageInfo.isHasNextPage());
     }
 
 }

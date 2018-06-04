@@ -1,9 +1,10 @@
 package com.taotao.service;
 
+import com.github.pagehelper.PageInfo;
 import com.taotao.pojo.TbItem;
 
 import java.util.List;
 
 public interface ItemService {
-    public List<TbItem> findAllItems();
+    public PageInfo findItems(Integer page, Integer pageSize);
 }

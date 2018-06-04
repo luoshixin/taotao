@@ -21,7 +21,6 @@ public class TaotaoManagerWebApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		itemService.findAllItems();
 	}
 
 }

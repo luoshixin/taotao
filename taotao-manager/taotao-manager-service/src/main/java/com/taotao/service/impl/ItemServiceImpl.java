@@ -1,5 +1,7 @@
 package com.taotao.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
@@ -16,17 +18,17 @@ public class ItemServiceImpl implements ItemService{
     @Autowired
     private TbItemMapper itemMapper;
 
+
     @Override
-    public List<TbItem> findAllItems() {
-//
-//        TbItemExample example = new TbItemExample();
-//        TbItemExample.Criteria criteria = example.createCriteria();
+    public PageInfo findItems(Integer page, Integer pageSize) {
+        if (pageSize == null){
+            pageSize = 24;
+        }
+
+        PageHelper.startPage(page, pageSize);
         List<TbItem> itemList = itemMapper.selectByExample(null);
+        PageInfo pageInfo = new PageInfo(itemList);
 
-        List<TbItem> items1 = new ArrayList<>();
-        items1.add(itemList.get(0));
-        return items1;
+        return pageInfo;
     }
-
-
 }

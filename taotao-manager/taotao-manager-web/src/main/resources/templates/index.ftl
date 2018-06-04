@@ -68,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
 
                             <li class="nav-item">
-                                <a href="pages/UI/general.html" class="nav-link">
+                                <a href="${request.contextPath}/page/goods-add" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>新增商品</p>
                                 </a>
