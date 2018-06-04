@@ -23,7 +23,7 @@ public class ItemController {
 
 
     @GetMapping("/list")
-    public Msg findItems(Integer page, Integer pageSize){
+    public Msg findItems(Integer page, Integer pageSize) throws Exception{
         PageInfo pageInfo = itemService.findItems(page, pageSize);
 
         return ResultUtil.pagingSuscess(pageInfo.getList(),

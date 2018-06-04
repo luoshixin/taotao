@@ -26,8 +26,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="../static/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<#-- bootstrap模态框依赖-->
+    <script src="../static/adminlte/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <link  rel="stylesheet" src="../static/adminlte/plugins/bootstrap/css/bootstrap.min.css">
+    <script src="../static/adminlte/plugins/jquery/jquery.min.js"></script>
+
+
 </head>
 <body class="hold-transition sidebar-mini">
+
+
 <div class="wrapper">
 
 <#--<!-- Navbar &ndash;&gt;-->
@@ -145,8 +153,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <tr class="table-padding">
                     <td>商品类目：</td>
                     <td>
-                        <button type="button" class="btn btn-block btn-outline-primary btn-sm selected-btn-block">选择类目
+                        <button type="button"
+                                class="btn btn-block  btn-primary btn-lg btn-outline-primary btn-sm selected-btn-block" data-toggle="modal" data-target="#chooseCidModel">
+                            选择类目
                         </button>
+                    <#-- 多级菜单 start-->
+                        <!-- 模态框（Modal） -->
+                        <div class="modal fade" id="chooseCidModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title" id="myModalLabel">
+                                            选择类目
+                                        </h6>
+                                    </div>
+                                    <#-- 多级菜单菜单内容 start-->
+                                    <div class="modal-body">
+
+                                    </div>
+                                    <#-- 多级菜单内容 end -->
+
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal -->
+                        </div>
+
+                    <#-- 多级菜单 end-->
                     </td>
                 </tr>
 
@@ -198,10 +229,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- 中间内容 end -->
 
 <#--<!-- Control Sidebar &ndash;&gt;-->
-<#--<aside class="control-sidebar control-sidebar-dark">-->
-
+<#--<aside class="control-sidebar control-sidebar-dark" >-->
+<#--<div class="p-3">-->
+<#--<h5>Title</h5>-->
+<#--<p>Sidebar content</p>-->
+<#--</div>-->
 <#--</aside>-->
-<#--<!-- /.control-sidebar &ndash;&gt;-->
+    <!-- /.control-sidebar -->
 
 <#--<!-- Main Footer &ndash;&gt;-->
 <#--<footer class="main-footer">-->
@@ -212,8 +246,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 
-<!-- jQuery -->
-<script src="../static/adminlte/plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="../static/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
@@ -241,7 +274,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             // 图片上传并返回结果，自定义插入图片的事件（而不是编辑器自动插入图片！！！）
             // insertImg 是插入图片的函数，editor 是编辑器对象，result 是服务器端返回的结果
             // 举例：假如上传图片成功后，服务器端返回的是 {url:'....'} 这种格式，即可这样插入图片：
-            var url =result.data;
+            var url = result.data;
             insertImg(url);
 
             // result 必须是一个 JSON 格式字符串！！！否则报错
@@ -256,5 +289,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     //     $("#form").submit();
     // })
 </script>
+
 </body>
 </html>

@@ -18,9 +18,8 @@ public class ItemServiceImpl implements ItemService{
     @Autowired
     private TbItemMapper itemMapper;
 
-
     @Override
-    public PageInfo findItems(Integer page, Integer pageSize) {
+    public PageInfo findItems(Integer page, Integer pageSize) throws Exception {
         if (pageSize == null){
             pageSize = 24;
         }
@@ -31,4 +30,6 @@ public class ItemServiceImpl implements ItemService{
 
         return pageInfo;
     }
+
+
 }

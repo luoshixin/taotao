@@ -6,5 +6,5 @@ import com.taotao.pojo.TbItem;
 import java.util.List;
 
 public interface ItemService {
-    public PageInfo findItems(Integer page, Integer pageSize);
+    public PageInfo findItems(Integer page, Integer pageSize) throws Exception;
 }
