@@ -11,6 +11,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <title>淘淘后台首页</title>
 
+    <#-- 多图上传 -->
+    <link href="../static/bootstrap-fileinput/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../static/bootstrap-fileinput/css/theme.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../static/bootstrap-fileinput/css/ymq/footer.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="../static/bootstrap-fileinput/js/jquery.min.js"></script>
+    <script src="../static/bootstrap-fileinput/js/sortable.js" type="text/javascript"></script>
+    <script src="../static/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+    <script src="../static/bootstrap-fileinput/js/zh.js" type="text/javascript"></script>
+    <script src="../static/bootstrap-fileinput/js/theme.js" type="text/javascript"></script>
+    <script src="../static/bootstrap-fileinput/js/bootstrap.min.js" type="text/javascript"></script>
+
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="../static/adminlte/plugins/font-awesome/css/font-awesome.min.css">
     <!-- Theme style -->
@@ -19,18 +32,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="../static/cs/common.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- bootstrap wysihtml5 - text editor -->
-    <link rel="stylesheet" href="../static/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-<#-- bootstrap模态框依赖-->
-    <script src="../static/adminlte/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <link  rel="stylesheet" src="../static/adminlte/plugins/bootstrap/css/bootstrap.min.css">
-    <script src="../static/adminlte/plugins/jquery/jquery.min.js"></script>
-
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -150,40 +151,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <section class="content">
             <table border="0" class="table-margin">
-                <tr class="table-padding">
-                    <td>商品类目：</td>
-                    <td>
-                        <button type="button"
-                                class="btn btn-block  btn-primary btn-lg btn-outline-primary btn-sm selected-btn-block" data-toggle="modal" data-target="#chooseCidModel">
-                            选择类目
-                        </button>
-                    <#-- 多级菜单 start-->
-                        <!-- 模态框（Modal） -->
-                        <div class="modal fade" id="chooseCidModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h6 class="modal-title" id="myModalLabel">
-                                            选择类目
-                                        </h6>
-                                    </div>
-                                    <#-- 多级菜单菜单内容 start-->
-                                    <div class="modal-body">
-
-                                    </div>
-                                    <#-- 多级菜单内容 end -->
-
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal -->
-                        </div>
-
-                    <#-- 多级菜单 end-->
-                    </td>
-                </tr>
 
                 <tr class="table-padding">
                     <td>商品标题：</td>
-                    <td><input type="text" class="form-control goods-input-size"></td>
+                    <td><input name="title" type="text" class="form-control goods-input-size"></td>
                 </tr>
 
                 <tr class="table-padding">
@@ -206,11 +177,51 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <td><input type="text" class="form-control goods-small-input-size"></td>
                 </tr>
 
-                <tr class="table-padding">
+                <tr class="table-padding">l
                     <td>商品图片：</td>
                     <td>
-                        <button type="button" class="btn btn-block btn-outline-primary btn-sm selected-btn-block">上传图片
-                        </button>
+                        <#--参考： https://github.com/souyunku/Picture-Bed
+                        建议先开一个测试html来测试组件，免得出现问题 -->
+                        <#-- 图片上传 start-->
+
+                            <div class="container kv-main">
+                                <div class="page-header">
+                                    每个图片最大5 MB,每个请求最多10个文件
+                                </div>
+
+                                <form enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <input id="file" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="1"
+                                               data-max-file-count="10" name="file" accept="image/*">
+                                    </div>
+                                </form>
+
+                                <div id="showurl" style="display: none;">
+                                    <h3 id="error"></h3>
+                                    <ul id="navTab" class="nav nav-tabs">
+                                        <li class="active"><a href="#htmls" data-toggle="tab">HTML</a></li>
+                                        <li><a href="#markdowns" data-toggle="tab">Markdown</a></li>
+                                        <li><a href="#markdownlinks" data-toggle="tab">Markdown with Link</a></li>
+                                        <li><a href="#urls" data-toggle="tab">URL</a></li>
+                                    </ul>
+                                    <div id="navTabContent" class="tab-content">
+                                        <div class="tab-pane fade in active" id="htmls">
+                                            <pre style="margin-top: 5px;"><code id="html"></code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="markdowns">
+                                            <pre style="margin-top: 5px;"><code id="markdown"></code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="markdownlinks">
+                                            <pre style="margin-top: 5px;"><code id="markdownlink"></code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="urls">
+                                            <pre style="margin-top: 5px;"><code id="url"></code></pre>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        <#-- 图片上传 end-->
                     </td>
                 </tr>
 
@@ -222,8 +233,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </tr>
             </table>
 
-
+            <div style="width: 100px; padding: 50px 0px 100px 0px ">
+            <button type="button" class="btn btn-block btn-outline-primary" style="width: 100px; margin-left: 300px" onclick="commitItemForm()">提交</button>
+            </div>
         </section>
+
+
 
     </div>
     <!-- 中间内容 end -->
@@ -267,8 +282,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script type="text/javascript">
     var E = window.wangEditor
     var editor = new E('#editor')
-    editor.customConfig.uploadFileName = 'imgName'      //给上传的本地图片文件命名的统一名称
-    editor.customConfig.uploadImgServer = '${request.contextPath}/file/uploadImages'//官方文档上写的是服务器地址，也就是上传图片的方法名
+    editor.customConfig.uploadFileName = 'file'      //给上传的本地图片文件命名的统一名称
+    editor.customConfig.uploadImgServer = '${request.contextPath}/file/uploadImage'//官方文档上写的是服务器地址，也就是上传图片的方法名
     editor.customConfig.uploadImgHooks = {
         customInsert: function (insertImg, result, editor) {
             // 图片上传并返回结果，自定义插入图片的事件（而不是编辑器自动插入图片！！！）
@@ -276,7 +291,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             // 举例：假如上传图片成功后，服务器端返回的是 {url:'....'} 这种格式，即可这样插入图片：
             var url = result.data;
             insertImg(url);
-
             // result 必须是一个 JSON 格式字符串！！！否则报错
         }
     }
@@ -290,5 +304,56 @@ scratch. This page gets rid of all links and provides the needed markup only.
     // })
 </script>
 
+
+<#-- 文件上传 -->
+<#--参考： https://github.com/souyunku/Picture-Bed
+                        建议先开一个测试html来测试组件，免得出现问题 -->
+<script type="text/javascript">
+
+
+    $("#file").fileinput({
+        uploadUrl: '${request.contextPath}/file/uploadImage',
+        allowedFileExtensions: ['jpeg', 'jpg', 'png', 'gif', 'bmp'],
+        overwriteInitial: false,
+        maxFileSize: 12120,
+        maxFilesNum: 10,
+        maxFileCount: 10,
+        language: 'zh',
+
+    });
+
+
+    var imgUrls = new Array();
+
+
+
+    $('#file').on('fileuploaded', function (event, data, previewId, index) {
+
+        var form = data.form, files = data.files, extra = data.extra, response = data.response, filenames = data.filenames,reader = data.reader;
+
+        // {"code":200,"msg":"请求成功","data":"http://192.168.3.38/images/2018/06/10/1528612686936849.jpeg"}
+
+        if (response.code == 200 && response.data !=null && response.data !=""){
+            console.error("上传成功：" + response.data);
+            // 存储图片的urls
+            imgUrls[imgUrls.length] = response.data;
+            //
+            // $("#showurl").show();
+            // $('#html').append("&lt;img src=\"" + response.data + "\" alt=\"" + files[index].name + "\" title=\"" + files[index].name + "\" /&gt;" + "\n");
+            // $('#markdown').append("![" + files[index].name + "](" + response.data + ")" + "\n");
+            // $('#markdownlink').append("[![" + files[index].name + "](" + response.data + ")]" + "(" + response.data + ")" + "\n");
+            // $('#url').append(response.data + "\n");
+        }
+
+    });
+</script>
+
+<script type="text/javascript">
+    <#-- 提交表单数据 -->
+    function commitItemForm() {
+        var formData = new FormData();
+        formData.append('title', $("input[name='title']").val());
+    }
+</script>
 </body>
 </html>

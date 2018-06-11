@@ -24,3 +24,8 @@
 .table-padding td {
     padding: 10px 0px;
 }
+
+#submit-button-div{
+    width: 100px;
+    padding:50px 100px 0px 0px;
+}

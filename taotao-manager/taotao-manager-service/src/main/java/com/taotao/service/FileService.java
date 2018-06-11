@@ -1,5 +1,7 @@
 package com.taotao.service;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public interface FileService {
-    public void saveImage() throws Exception;
+    public String saveImage(MultipartFile multipartFile) throws Exception;
 }
