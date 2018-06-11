@@ -41,14 +41,10 @@ public class FileServiceImpl implements FileService {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String filePath = sdf.format(new Date());
-        try {
-            // 由于是后台管理系统，真是线上环境也不会用ftp所以就不加入ftp连接池
-            FtpUtil.uploadFile(ftpAddress, ftpPort, ftpUserName, ftpPassWord,
-                    ftpBasePath, filePath, imageName + ext, multipartFile.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        // 由于是后台管理系统，真是线上环境也不会用ftp所以就不加入ftp连接池
+        FtpUtil.uploadFile(ftpAddress, ftpPort, ftpUserName, ftpPassWord,
+                ftpBasePath, filePath, imageName + ext, multipartFile.getInputStream());
+
         return ftpImageBasePath + filePath + "/" + imageName + ext;
     }
 }

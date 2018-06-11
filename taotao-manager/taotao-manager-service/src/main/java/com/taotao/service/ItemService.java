@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ItemService {
     public PageInfo findItems(Integer page, Integer pageSize) throws Exception;
+    public void saveItem(TbItem item) throws Exception;
 }

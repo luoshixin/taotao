@@ -8,6 +8,7 @@ import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,5 +34,13 @@ public class ItemController {
                 pageInfo.isHasPreviousPage(),
                 pageInfo.isHasNextPage());
     }
+
+    @PostMapping("/save")
+    public Msg saveItem(TbItem item) throws Exception{
+        System.out.println("上传成功：" + item);
+        itemService.saveItem(item);
+        return ResultUtil.success(item);
+    }
+
 
 }

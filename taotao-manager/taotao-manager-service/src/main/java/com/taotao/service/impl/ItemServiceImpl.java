@@ -2,6 +2,8 @@ package com.taotao.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.sun.xml.internal.bind.v2.model.core.ID;
+import com.taotao.common.utils.IDUtils;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -29,6 +32,18 @@ public class ItemServiceImpl implements ItemService{
         PageInfo pageInfo = new PageInfo(itemList);
 
         return pageInfo;
+    }
+
+    @Override
+    public void saveItem(TbItem item) throws Exception {
+        // 补全字段
+        item.setId(IDUtils.genItemId());
+        item.setCid((long)1);
+        item.setStatus((byte)1);
+        item.setCreated(new Date());
+        item.setUpdated(new Date());
+
+        itemMapper.insert(item);
     }
 
 
