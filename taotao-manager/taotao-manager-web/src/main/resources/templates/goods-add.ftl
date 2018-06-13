@@ -369,25 +369,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                imgUrls[0] = "https://img.alicdn.com/imgextra/i3/263817957/TB2Sza.fhSYBuNjSspjXXX73VXa_!!263817957.jpg_.webp";
                imgUrls[1] = "https://img.alicdn.com/imgextra/i1/263817957/TB2VcdiXpooBKNjSZFPXXXa2XXa_!!263817957.jpg_.webp";
                var json = JSON.stringify(imgUrls);
-                formData.append("image", json);
+               formData.append("image", json);
 
 //                var formData = new FormData($('#form')[0]);// 自动搜索表单信息(表单内没有name属性的input不会被搜索到)，IE<=9不支持FormData
 //                formData.append('b', 3);// 还可以添加额外的表单数据
 
-                $.ajax({
-                    type: 'post',
-                    url: '${request.contextPath}/item/save',
-                    data: formData,
-                    contentType: false,// 当有文件要上传时，此项是必须的，否则后台无法识别文件流的起始位置(详见：#1)
-                    processData: false,// 是否序列化data属性，默认true(注意：false时type必须是post，详见：#2)
-//                    xhr: xhrOnProgress(function (e) {// (详见：#3)
-//                        var percent = e.loaded / e.total;//计算百分比
-//                        $('body').append('->' + percent);
-//                    }),
-                    success: function (data) {
-                        $('body').append('完成' + data);
-                    }
-                })
+
+             console.error("数据：" + $("#editor").val());
+                <#--$.ajax({-->
+                    <#--type: 'post',-->
+                    <#--url: '${request.contextPath}/item/save',-->
+                    <#--data: formData,-->
+                    <#--contentType: false,// 当有文件要上传时，此项是必须的，否则后台无法识别文件流的起始位置(详见：#1)-->
+                    <#--processData: false,// 是否序列化data属性，默认true(注意：false时type必须是post，详见：#2)-->
+<#--//                    xhr: xhrOnProgress(function (e) {// (详见：#3)-->
+<#--//                        var percent = e.loaded / e.total;//计算百分比-->
+<#--//                        $('body').append('->' + percent);-->
+<#--//                    }),-->
+                    <#--success: function (data) {-->
+                        <#--$('body').append('完成' + data);-->
+                    <#--}-->
+                <#--})-->
             }
     );
 </script>

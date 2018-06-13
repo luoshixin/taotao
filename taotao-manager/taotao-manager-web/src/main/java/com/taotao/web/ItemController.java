@@ -36,7 +36,7 @@ public class ItemController {
     }
 
     @PostMapping("/save")
-    public Msg saveItem(TbItem item) throws Exception{
+    public Msg saveItem(TbItem item, String des) throws Exception{
         System.out.println("上传成功：" + item);
         itemService.saveItem(item);
         return ResultUtil.success(item);

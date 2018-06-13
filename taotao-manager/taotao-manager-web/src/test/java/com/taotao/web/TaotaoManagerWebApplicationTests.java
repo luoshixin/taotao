@@ -24,7 +24,6 @@ public class TaotaoManagerWebApplicationTests {
 	@Test
 	public void testFtpUpload() {
 
-
 	}
 
 }
