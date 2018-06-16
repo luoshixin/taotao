@@ -230,7 +230,6 @@ GitHub地址：https://github.com/pgkk/kkpager
                 findItems(page);
                 //手动选中按钮
                 this.selectPage(page);
-
                 return false;
             }
 

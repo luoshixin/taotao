@@ -69,6 +69,10 @@ public class FtpUtil {
 			}
 			//设置上传文件的类型为二进制类型
 			ftp.setFileType(FTP.BINARY_FILE_TYPE);
+
+			// FTPClient上传文件大小为0
+			// 设置ftp协议的工作方式为PASV方式，否则上传到服务器的文件的到校可能为0
+			ftp.enterLocalPassiveMode();
 			//上传文件
 			if (!ftp.storeFile(filename, input)) {
 				return result;

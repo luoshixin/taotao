@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @MapperScan("com.taotao.mapper")
-@EnableTransactionManagement
+@EnableTransactionManagement// 开启事务
 public class MybatisConfig {
     @Autowired
     private Environment env;
