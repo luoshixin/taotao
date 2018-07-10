@@ -40,6 +40,7 @@ since the default config files accept Spring style placeholders (${…​}) the 
         <pagehelper.version>1.2.5</pagehelper.version>
         <commons-net.version>3.6</commons-net.version>
         <commons-pool2.version>2.4.2</commons-pool2.version>
+        <redis.version>1.4.7.RELEASE</redis.version>
     </properties>
 
     <!-- 这里只是定义依赖，并不会实际引用依赖, springboot没有定义的依赖，都在这里统一定义 -->
@@ -83,6 +84,13 @@ since the default config files accept Spring style placeholders (${…​}) the 
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <optional>true</optional>
+            </dependency>
+
+            <!-- redis -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-redis</artifactId>
+                <version>${redis.version}</version>
             </dependency>
         </dependencies>
 
